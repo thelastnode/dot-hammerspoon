@@ -21,6 +21,7 @@ local appMap = {
     { key = 'w', app = 'WhatsApp' },
     { key = 'j', app = 'IntelliJ' },
     { key = 'b', app = 'Blender' },
+    { key = 'e', app = 'Microsoft Edge' },
 }
 local function focusApplication(pattern)
     local app = hs.application.find(pattern)
