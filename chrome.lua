@@ -32,5 +32,5 @@ end
 LaunchModal:bind({}, 'o', function() focusOutlookWindow(workProfileName, '1') end) -- Mail
 LaunchModal:bind({}, 'c', function() focusOutlookWindow(workProfileName, '2') end) -- Calendar
 
--- Messenger
-LaunchModal:bind({}, 'm', function() focusOutlookWindow(personalProfileName, '2') end) -- Calendar
+LaunchModal:bind({}, 'm', function() focusOutlookWindow(personalProfileName, '2') end) -- Messenger
+LaunchModal:bind({}, 'g', function() focusOutlookWindow(personalProfileName, '3') end) -- ChatGPT
