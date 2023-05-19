@@ -42,6 +42,7 @@ LaunchModal:bind({}, '=', function() hs:openConsole(); LaunchModal:exit() end)
 -- other modules
 require('cameralight')
 require('chrome')
+require('figma')
 require('obsidian')
 
 hs.alert.show('Hammerspoon loaded 🔨')
