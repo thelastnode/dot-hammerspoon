@@ -44,5 +44,6 @@ require('cameralight')
 require('chrome')
 require('figma')
 require('obsidian')
+require('screenrecording')
 
 hs.alert.show('Hammerspoon loaded 🔨')
