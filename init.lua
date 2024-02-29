@@ -11,7 +11,7 @@ LaunchModal:bind({}, 'escape', function() LaunchModal:exit() end)
 
 -- app mappings
 local appMap = {
-    { key = 'v', app = 'Code$' },
+    { key = 'v', app = '^Code$' },
     { key = 's', app = 'Slack' },
     { key = 'n', app = 'Obsidian' },
     { key = 't', app = 'Microsoft Teams' },
@@ -24,6 +24,7 @@ local appMap = {
     { key = 'e', app = 'Microsoft Edge' },
     { key = 'x', app = 'Excel' },
     { key = 'm', app = 'Messenger' },
+    { key = 'q', app = 'Xcode' },
 }
 local function focusApplication(pattern)
     local app = hs.application.find(pattern)
