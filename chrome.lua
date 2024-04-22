@@ -32,5 +32,5 @@ end
 
 LaunchModal:bind({}, 'o', function() focusOutlookWindow(workProfileName, '1') end) -- Mail
 LaunchModal:bind({}, 'c', function() focusOutlookWindow(workProfileName, '2') end) -- Calendar
-LaunchModal:bind({}, 'g', function() focusOutlookWindow(workProfileName, '3') end) -- ChatGPT
-LaunchModal:bind({}, 'G', function() focusOutlookWindow(personalProfileName, '2') end) -- open-webui
+LaunchModal:bind({ "shift" }, 'g', function() focusOutlookWindow(workProfileName, '3') end) -- ChatGPT
+LaunchModal:bind({}, 'g', function() focusOutlookWindow(personalProfileName, '2') end) -- open-webui
