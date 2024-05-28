@@ -48,5 +48,6 @@ require('chrome')
 require('figma')
 require('obsidian')
 require('screenrecording')
+require('timetracker')
 
 hs.alert.show('Hammerspoon loaded 🔨')
