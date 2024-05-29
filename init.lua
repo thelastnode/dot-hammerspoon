@@ -46,7 +46,6 @@ LaunchModal:bind({}, '=', function() hs:openConsole(); LaunchModal:exit() end)
 require('cameralight')
 require('chrome')
 require('figma')
-require('obsidian')
 require('screenrecording')
 require('timetracker')
 
