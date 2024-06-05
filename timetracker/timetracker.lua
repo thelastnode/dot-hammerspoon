@@ -23,7 +23,7 @@ local function createTable()
         CREATE TABLE IF NOT EXISTS screen_state (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             timestamp INTEGER DEFAULT (unixepoch('subsecond')),
-            state TEXT CHECK(state IN ('locked','unlocked')) NOT NULL
+            state TEXT CHECK(state IN ('locked', 'unlocked')) NOT NULL
         );
     ]])
 end

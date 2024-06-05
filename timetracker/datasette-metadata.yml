@@ -1,0 +1,70 @@
+databases:
+  timetracker:
+    queries:
+      time_usage:
+        title: Time Usage for Today
+        sql: |-
+          WITH combined AS (
+              SELECT
+                id AS app_id,
+                "timestamp",
+                app,
+                title,
+                "data",
+                NULL as state
+              FROM
+                focused_app fa
+              UNION ALL
+              SELECT
+                id as lock_id,
+                "timestamp",
+                state,
+                NULL as app,
+                NULL as title,
+                NULL as "data"
+              from
+                screen_state ss
+            ),
+            combined_with_next AS (
+              SELECT
+                *,
+                lead("timestamp", 1) OVER (
+                  ORDER BY
+                    "timestamp" ROWS BETWEEN CURRENT ROW
+                    AND 1 FOLLOWING
+                ) AS next_timestamp
+              FROM
+                combined
+            ),
+            durations AS (
+              SELECT
+                *,
+                next_timestamp - "timestamp" AS "duration_seconds",
+                json_extract("data", "$.url") as url
+              FROM
+                combined_with_next
+              WHERE
+                state IS NULL
+            )
+            SELECT
+              SUM(duration_seconds) / (60 * 60) as duration_hours,
+              SUM(duration_seconds) / 60 as duration_mins,
+              app || (
+                CASE
+                  WHEN url IS NOT NULL THEN ' | ' || regex_find("[^/]+", url)
+                  WHEN app in ('Microsoft Teams', 'Code') THEN ' | ' || title
+                  WHEN app = 'Slack'
+                  AND LOWER(title) LIKE '%huddle%' THEN ' | ' || title
+                  ELSE ''
+                END
+              ) as label
+            FROM
+              durations
+            WHERE
+              "timestamp" > unixepoch(date('now', 'localtime'), 'subsec', 'utc')
+            GROUP BY
+              label
+            HAVING
+              duration_mins > 1
+            ORDER BY
+              duration_mins DESC
