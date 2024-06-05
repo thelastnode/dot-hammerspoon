@@ -1,7 +1,14 @@
--- Run in console, then click window to center and resize to 1080p.
--- Will also capture area with CleanShot X to set up last capture location for recording.
+-- Run `ScreenRecordingMode()` in console, then click window. This will:
+-- 1. Center and resize to 1080p
+-- 2. Open CleanShot X all-in-one capture mode
+--
+-- You can also specify custom dimensions like `ScreenRecordingMode{ w = 800, h = 600 }`.
 
-function ScreenRecordingMode()
+--- @param dimensions table | nil
+function ScreenRecordingMode(dimensions)
+    local width = dimensions and dimensions.w or 1920
+    local height = dimensions and dimensions.h or 1080
+
     ScreenRecordingModeWatcher  = hs.application.watcher.new(function (name, event, app)
         if event ~= hs.application.watcher.activated then
             return
@@ -10,26 +17,22 @@ function ScreenRecordingMode()
 
         -- center on screen, set to 1080p
         local window = app:focusedWindow()
-        window:setSize({ w = 1920, h = 1080 })
+        window:setSize({ w = width, h = height })
         window:centerOnScreen()
-
-        -- TODO CleanShot X doesn't support parameters for all-in-one mode.
-        -- UPDATE: it does now!
 
         -- CleanShot X uses points relative to bottom left: https://cleanshot.com/docs/api
         -- hs.screen:localToAbsolute() uses points relative to top left
-        -- local topLeft = window:screen():absoluteToLocal(window:topLeft())
-        -- local screenHeight = window:screen():fullFrame()['h']
+        local topLeft = window:screen():absoluteToLocal(window:topLeft())
 
-        -- local cleanShotUrl = (
-        --     'cleanshot://capture-area?'
-        --     .. 'x=' .. string.format('%d', topLeft['x'])
-        --     .. '&y=' .. string.format('%d', topLeft['y'])
-        --     .. '&width=' .. string.format('%d', window:size()['w'])
-        --     .. '&height=' .. string.format('%d', window:size()['h'])
-        --     .. '&display=' .. string.format('%d', window:screen():id())
-        -- )
-        -- print(cleanShotUrl) -- TODO remove
+        local cleanShotUrl = (
+            'cleanshot://all-in-one?'
+            .. 'x=' .. string.format('%d', topLeft['x'])
+            .. '&y=' .. string.format('%d', topLeft['y'])
+            .. '&width=' .. string.format('%d', window:size()['w'])
+            .. '&height=' .. string.format('%d', window:size()['h'])
+            .. '&display=' .. string.format('%d', window:screen():id())
+        )
+        hs.urlevent.openURL(cleanShotUrl)
     end)
     ScreenRecordingModeWatcher:start()
 end

@@ -37,6 +37,6 @@ After Datasette is running, you can see usage for the day by opening [this link]
 This automation turns on an Elgato key light via [Home Assistant](https://www.home-assistant.io/) when a camera is detected via USB. This requires a Home Assistant token in `~/.hammerspoon/homeassistant`. If the token is missing, the automation will not register.
 
 ### [Screen recording mode](./screenrecording.lua)
-The `ScreenRecordingMode` function is a convenience utility to center a window on screen and resize it to 1080p. To use it, run `ScreenRecordingMode()` in the Hammerspoon console, then click a window to center it on screen.
+The `ScreenRecordingMode` function is a convenience utility to center a window on screen and resize it to 1080p. To use it, run `ScreenRecordingMode()` in the Hammerspoon console, then click a window to center it on screen, resize it to 1080p, and open [CleanShot X](https://cleanshot.com/)'s all-in-one capture mode.
 
-This can also open [CleanShot X](https://cleanshot.com/)'s all-in-one capture mode, but I haven't implemented that yet.
+You can also pass in a custom width and height for the window, e.g.: `ScreenRecordingMode{ w = 800, h = 600 }`.
