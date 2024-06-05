@@ -14,6 +14,7 @@ function ScreenRecordingMode()
         window:centerOnScreen()
 
         -- TODO CleanShot X doesn't support parameters for all-in-one mode.
+        -- UPDATE: it does now!
 
         -- CleanShot X uses points relative to bottom left: https://cleanshot.com/docs/api
         -- hs.screen:localToAbsolute() uses points relative to top left
