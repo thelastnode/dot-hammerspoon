@@ -23,14 +23,13 @@ for _, mapping in ipairs(chromeMap) do
     end)
 end
 
--- Outlook in Chrome PWA mappings
-local function focusOutlookWindow(profileName, tabNum)
+local function focusChromeTab(profileName, tabNum)
     focusChromeWindow(profileName)
     hs.eventtap.keyStroke({ 'cmd' }, tabNum)
     LaunchModal:exit()
 end
 
-LaunchModal:bind({}, 'o', function() focusOutlookWindow(workProfileName, '1') end) -- Mail
-LaunchModal:bind({}, 'c', function() focusOutlookWindow(workProfileName, '2') end) -- Calendar
-LaunchModal:bind({ "shift" }, 'g', function() focusOutlookWindow(workProfileName, '3') end) -- ChatGPT
-LaunchModal:bind({}, 'g', function() focusOutlookWindow(personalProfileName, '2') end) -- open-webui
+LaunchModal:bind({}, 'o', function() focusChromeTab(workProfileName, '1') end) -- Mail
+LaunchModal:bind({}, 'c', function() focusChromeTab(workProfileName, '2') end) -- Calendar
+LaunchModal:bind({ "shift" }, 'g', function() focusChromeTab(workProfileName, '3') end) -- ChatGPT
+LaunchModal:bind({}, 'g', function() focusChromeTab(personalProfileName, '2') end) -- open-webui
