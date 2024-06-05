@@ -1,6 +1,6 @@
 # .hammerspoon
 
-These are my configuration files for [hammerspoon](https://www.hammerspoon.org/).
+These are my configuration files for [Hammerspoon](https://www.hammerspoon.org/).
 
 ## Install
 
