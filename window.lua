@@ -1,9 +1,20 @@
 WindowModal = hs.hotkey.modal.new({ 'cmd', 'ctrl' }, '2')
 WindowModal:bind({}, 'escape', function() WindowModal:exit() end)
 
+---@type string | nil
+local modalAlert = nil
+
 ---@diagnostic disable-next-line: duplicate-set-field
 function WindowModal:entered()
-    hs.alert.show('↔')
+    modalAlert = hs.alert.show('↔', nil)
+end
+
+---@diagnostic disable-next-line: duplicate-set-field
+function WindowModal:exited()
+    if modalAlert ~= nil then
+        hs.alert.closeSpecific(modalAlert)
+    end
+    modalAlert = nil
 end
 
 local function bindLayouts()
