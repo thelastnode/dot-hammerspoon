@@ -18,5 +18,6 @@ require('figma')
 require('launch')
 require('screenrecording')
 require('timetracker.timetracker')
+require('window')
 
 hs.alert.show('Hammerspoon loaded 🔨')

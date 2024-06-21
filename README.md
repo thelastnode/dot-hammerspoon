@@ -22,6 +22,16 @@ You can also configure shortcuts to get to pinned tabs in different profiles.
 #### Special handling for Figma
 [Figma](./figma.lua) desktop has a feature to open a file URL from the clipboard - this is bound to <kbd>ctrl</kbd> + <kbd>⌘</kbd> + <kbd>a</kbd> followed by <kbd>shift</kbd> + <kbd>f</kbd>.
 
+### [Window Management](./window.lua)
+This module lets you snap windows using your keyboard with vim-style directions (hjkl).
+
+Start with <kbd>ctrl</kbd> + <kbd>⌘</kbd> + <kbd>2</kbd> to enable window mode, then any of the following:
+- <kbd>space</kbd>: snap to fill the screen
+- <kbd>hjkl</kbd>: snap to the left, down, up, or right half of the screen
+- <kbd>uom.</kbd>: snap to the the corners of the screen
+- <kbd>⌘</kbd> + <kbd>hl</kbd>: snap to left or right 70% of the screen
+- <kbd>ctrl</kbd> + <kbd>hjkl</kbd>: move to the left, down, up, or right screen (does not exit window mode, so can be followed by one of the above snapping commands)
+
 ### [Time tracker](./timetracker/timetracker.lua)
 This module captures which window is active to a SQLite database located at `~/.hammerspoon/data/timetracker.sqlite3`. It has special handling for Google Chrome to capture URLs.
 
