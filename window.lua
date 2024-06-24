@@ -61,5 +61,39 @@ local function bindScreenMoves()
     end
 end
 
+local function findSmallestScreen()
+    ---@type hs.screen
+    ---@diagnostic disable-next-line: assign-type-mismatch
+    local smallestScreen = hs.fnutils.reduce(hs.screen.allScreens(), function(acc, screen)
+        local currentFrame = acc:frame()
+        local frame = screen:frame()
+        local newScreenIsBigger = currentFrame['w'] * currentFrame['h'] <= frame['w'] * frame['h'] 
+        if newScreenIsBigger then
+            return acc
+        else
+            return screen
+        end
+    end, hs.screen.primaryScreen())
+
+    return smallestScreen
+end
+
+-- This centers the window on its current screen, but sizes it to the size of your smallest monitor. This is useful
+-- for screen sharing: a large monitor is hard to see if you're consuming it on a smaller laptop screen.
+local function bindCenterOnScreen()
+    WindowModal:bind({}, 'tab', function()
+        local smallestScreen = findSmallestScreen()
+        local win = hs.window.focusedWindow()
+        -- first, move the window to the top left of the current screen so it has room to resize
+        win:setTopLeft(win:screen():frame())
+        -- then, resize it
+        win:setSize(hs.geometry.size(smallestScreen:frame()['w'], smallestScreen:frame()['h']))
+        -- finally, center it on the screen
+        win:centerOnScreen()
+        WindowModal:exit()
+    end)
+end
+
 bindLayouts()
 bindScreenMoves()
+bindCenterOnScreen()
