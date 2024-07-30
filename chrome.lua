@@ -12,7 +12,7 @@ local workProfileName = 'Work'
 local personalProfileName = 'Ankit'
 
 local chromeMap = {
-    { key = '1', profile = workProfileName },
+    -- { key = '1', profile = workProfileName },
     { key = '2', profile = 'Ankit' },
 }
 
@@ -29,7 +29,22 @@ local function focusChromeTab(profileName, tabNum)
     LaunchModal:exit()
 end
 
-LaunchModal:bind({}, 'o', function() focusChromeTab(workProfileName, '1') end) -- Mail
-LaunchModal:bind({}, 'c', function() focusChromeTab(workProfileName, '2') end) -- Calendar
-LaunchModal:bind({ "shift" }, 'g', function() focusChromeTab(workProfileName, '3') end) -- ChatGPT
+local function focusIsland()
+    hs.application.find('Island'):activate()
+end
+
+local function focusIslandTab(tabNum)
+    focusIsland()
+    hs.eventtap.keyStroke({ 'cmd' }, tabNum)
+    LaunchModal:exit()
+end
+
+LaunchModal:bind({}, '1', function()
+    focusIsland()
+    LaunchModal:exit()
+end)
+
+LaunchModal:bind({}, 'o', function() focusIslandTab('1') end) -- Mail
+LaunchModal:bind({}, 'c', function() focusIslandTab('2') end) -- Calendar
+LaunchModal:bind({ "shift" }, 'g', function() focusIslandTab('3') end) -- ChatGPT
 LaunchModal:bind({}, 'g', function() focusChromeTab(personalProfileName, '2') end) -- open-webui

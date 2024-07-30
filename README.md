@@ -15,7 +15,7 @@ Launch mode lets you quickly get to an app by hitting a key chord (<kbd>ctrl</kb
 
 #### Special handling for the browser
 
-Google Chrome has [some special handling](./chrome.lua) for multiple profiles. Assuming there are two profiles (`Work` and `Ankit`), `1` will switch to the `Work` window and `2` will switch to the `Ankit` (personal) window.
+Google Chrome / Island has [some special handling](./chrome.lua) for multiple profiles. `1` will switch to Island browser (Work profile) and `2` will switch to the personal Chrome window.
 
 You can also configure shortcuts to get to pinned tabs in different profiles.
 
