@@ -14,6 +14,7 @@ local appMap = {
     { key = 'x', app = 'Excel' },
     { key = 'm', app = 'Messenger' },
     { key = 'q', app = 'Xcode' },
+    { key = 'g', app = 'Open WebUI' },
 }
 local function focusApplication(pattern)
     local app = hs.application.find(pattern)

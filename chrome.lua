@@ -47,4 +47,4 @@ end)
 LaunchModal:bind({}, 'o', function() focusIslandTab('1') end) -- Mail
 LaunchModal:bind({}, 'c', function() focusIslandTab('2') end) -- Calendar
 LaunchModal:bind({ "shift" }, 'g', function() focusIslandTab('3') end) -- ChatGPT
-LaunchModal:bind({}, 'g', function() focusChromeTab(personalProfileName, '2') end) -- open-webui
+
