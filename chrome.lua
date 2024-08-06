@@ -12,8 +12,8 @@ local workProfileName = 'Work'
 local personalProfileName = 'Ankit'
 
 local chromeMap = {
-    -- { key = '1', profile = workProfileName },
-    { key = '2', profile = 'Ankit' },
+    -- { key = '9', profile = workProfileName },
+    { key = '0', profile = 'Ankit' },
 }
 
 for _, mapping in ipairs(chromeMap) do
@@ -39,7 +39,7 @@ local function focusIslandTab(tabNum)
     LaunchModal:exit()
 end
 
-LaunchModal:bind({}, '1', function()
+LaunchModal:bind({}, '9', function()
     focusIsland()
     LaunchModal:exit()
 end)
