@@ -29,7 +29,7 @@ local function createTable()
 end
 createTable()
 
-SleepWatcher = hs.caffeinate.watcher.new(function (eventType)
+SleepWatcher = hs.caffeinate.watcher.new(function(eventType)
     if (eventType == hs.caffeinate.watcher.screensDidLock) then
         runSql([[
             INSERT INTO screen_state (state) VALUES ('locked');
@@ -128,9 +128,9 @@ windowFilter:subscribe(hs.window.filter.windowFocused, function()
     if app ~= nil and app:name() == 'loginwindow' then
         return
     end
-    
-    -- special handling for Google Chrome
-    if app ~= nil and app:name() == 'Google Chrome' then
+
+    -- special handling for Google Chrome and Island
+    if app ~= nil and (app:name() == 'Google Chrome' or app:name() == 'Island') then
         logChromeWindow(focused)
         return
     end
