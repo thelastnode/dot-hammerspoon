@@ -23,7 +23,7 @@ local function setupCameraHook()
 
         hs.http.post(
             homeAssistantUrl .. '/services/light/' .. endpoint,
-            hs.json.encode({ entity_id = 'light.elgato_cw26k1a05589' }),
+            hs.json.encode({ entity_id = 'light.workshop_key_light' }),
             { Authorization = 'Bearer ' .. homeAssistantToken }
         )
     end)
