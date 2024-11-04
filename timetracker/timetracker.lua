@@ -20,11 +20,14 @@ local function createTable()
             title TEXT NOT NULL,
             data TEXT
         );
+        CREATE INDEX IF NOT EXISTS idx_focused_app_timestamp ON focused_app (timestamp);
+
         CREATE TABLE IF NOT EXISTS screen_state (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             timestamp INTEGER DEFAULT (unixepoch('subsecond')),
             state TEXT CHECK(state IN ('locked', 'unlocked')) NOT NULL
         );
+        CREATE INDEX IF NOT EXISTS idx_screen_state_timestamp ON screen_state (timestamp);
     ]])
 end
 createTable()
