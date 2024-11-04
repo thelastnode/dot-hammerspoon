@@ -15,7 +15,7 @@ databases:
               FROM
                 focused_app fa
               WHERE
-                "timestamp" > unixepoch(date('now', 'localtime'), 'subsec', 'utc')
+                "timestamp" > unixepoch(date(:since, 'localtime'), 'subsec', 'utc')
               UNION ALL
               SELECT
                 id as lock_id,
@@ -27,7 +27,7 @@ databases:
               from
                 screen_state ss
               WHERE
-                "timestamp" > unixepoch(date('now', 'localtime'), 'subsec', 'utc')
+                "timestamp" > unixepoch(date(:since, 'localtime'), 'subsec', 'utc')
             ),
             combined_with_next AS (
               SELECT
