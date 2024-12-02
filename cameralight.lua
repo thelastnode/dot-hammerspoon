@@ -1,4 +1,4 @@
-local homeAssistantUrl = 'http://bigblackbox.local:8123/api'
+local homeAssistantUrl = 'http://192.168.4.6:8123/api'
 local homeAssistantSecretFile = hs.configdir .. '/secrets/homeassistant'
 
 local function setupCameraHook()
