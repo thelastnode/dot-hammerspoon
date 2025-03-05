@@ -1,6 +1,6 @@
 -- app mappings
 local appMap = {
-    { key = 'v', app = '^Code$' },
+    { key = 'v', app = '^Code[ ]?[-]?' },  -- match both 'Code - Insiders' and 'Code'
     { key = 's', app = 'Slack' },
     { key = 'n', app = 'Obsidian' },
     { key = 't', app = 'Microsoft Teams' },
