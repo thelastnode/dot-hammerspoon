@@ -1,13 +1,13 @@
 -- app mappings
 local appMap = {
     { key = 'v', app = '^Code[ ]?[-]?' },  -- match both 'Code - Insiders' and 'Code'
+    { key = 'w', app = 'Windsurf' },
     { key = 's', app = 'Slack' },
     { key = 'n', app = 'Obsidian' },
     { key = 't', app = 'Microsoft Teams' },
     { key = 'i', app = 'Messages' },
     { key = 'f', app = 'Figma' },
     { key = 'p', app = 'Spotify' },
-    { key = 'w', app = 'WhatsApp' },
     { key = 'j', app = 'IntelliJ' },
     { key = 'b', app = 'Blender' },
     { key = 'e', app = 'Microsoft Edge' },
