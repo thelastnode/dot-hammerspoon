@@ -38,7 +38,7 @@ This module captures which window is active to a SQLite database located at `~/.
 It also includes a [datasette metadata file](./timetracker/datasette-metadata.yml) to see usage in [Datasette](https://datasette.io/). This can be run with:
 
 ```sh
-datasette ~/.hammerspoon/data/timetracker.sqlite3 --metadata ~/.hammerspoon/timetracker/datasette-metadata.yml
+uvx --with datasette-sqlite-regex datasette ~/.hammerspoon/data/timetracker.sqlite3 --metadata ~/.hammerspoon/timetracker/datasette-metadata.yml
 ```
 
 After Datasette is running, you can see usage for the day by opening [this link](http://localhost:8001/timetracker/time_usage?_hide_sql=1) (by default).
