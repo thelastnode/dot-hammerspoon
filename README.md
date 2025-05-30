@@ -41,7 +41,7 @@ It also includes a [datasette metadata file](./timetracker/datasette-metadata.ym
 uvx --with datasette-sqlite-regex datasette ~/.hammerspoon/data/timetracker.sqlite3 --metadata ~/.hammerspoon/timetracker/datasette-metadata.yml
 ```
 
-After Datasette is running, you can see usage for the day by opening [this link](http://localhost:8001/timetracker/time_usage?_hide_sql=1) (by default).
+After Datasette is running, you can see usage for the day by opening [this link](http://localhost:8001/timetracker/time_usage?since=now&_hide_sql=1) (by default).
 
 ### [Camera light](./cameralight.lua)
 This automation turns on an Elgato key light via [Home Assistant](https://www.home-assistant.io/) when a camera is detected via USB. This requires a Home Assistant token in `~/.hammerspoon/homeassistant`. If the token is missing, the automation will not register.
