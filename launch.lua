@@ -16,6 +16,7 @@ local appMap = {
     { key = 'q', app = 'Xcode' },
     { key = 'g', app = 'Open WebUI' },
     { key = 'h', app = 'Home Assistant' },
+    { key = 'd', app = 'Claude' },
 }
 local function focusApplication(pattern)
     local app = hs.application.find(pattern)
