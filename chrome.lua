@@ -8,11 +8,7 @@ local function focusChromeWindow(profile)
     end
 end
 
-local workProfileName = 'Work'
-local personalProfileName = 'Ankit'
-
 local chromeMap = {
-    -- { key = '9', profile = workProfileName },
     { key = '0', profile = 'Ankit' },
 }
 
@@ -44,7 +40,7 @@ LaunchModal:bind({}, '9', function()
     LaunchModal:exit()
 end)
 
-LaunchModal:bind({}, 'o', function() focusIslandTab('1') end) -- Mail
-LaunchModal:bind({}, 'c', function() focusIslandTab('2') end) -- Calendar
-LaunchModal:bind({ "shift" }, 'g', function() focusIslandTab('3') end) -- ChatGPT
+-- Disabled for native Outlook for now
+-- LaunchModal:bind({}, 'o', function() focusIslandTab('1') end) -- Mail
+-- LaunchModal:bind({}, 'c', function() focusIslandTab('2') end) -- Calendar
 

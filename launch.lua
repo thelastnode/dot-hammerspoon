@@ -18,6 +18,7 @@ local appMap = {
     { key = 'h', app = 'Home Assistant' },
     { key = 'd', app = 'Claude' },
     { key = 'l', app = 'LM Studio' },
+    { key = 'o', app = 'Microsoft Outlook' },
 }
 local function focusApplication(pattern)
     local app = hs.application.find(pattern)
@@ -34,3 +35,11 @@ end
 
 -- Hammerspoon console
 LaunchModal:bind({}, '=', function() hs:openConsole(); LaunchModal:exit() end)
+
+-- Calendar
+LaunchModal:bind({}, 'c', function ()
+    focusApplication('Microsoft Outlook')
+    local outlook = hs.application.find('Microsoft Outlook')
+    outlook:selectMenuItem({ 'View', 'Go To', 'Calendar' })
+    LaunchModal:exit()
+end)
