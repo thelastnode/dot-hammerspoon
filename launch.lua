@@ -12,7 +12,7 @@ local appMap = {
     { key = 'b', app = 'Blender' },
     { key = 'e', app = 'Microsoft Edge' },
     { key = 'x', app = 'Excel' },
-    { key = 'm', app = '^Facebook$' },  -- Messenger is hosted on Facebook now
+    { key = 'm', app = 'Messenger' },
     { key = 'q', app = 'Xcode' },
     { key = 'g', app = 'Open WebUI' },
     { key = 'h', app = 'Home Assistant' },
