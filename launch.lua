@@ -19,6 +19,7 @@ local appMap = {
     { key = 'd', app = 'Claude' },
     { key = 'l', app = 'LM Studio' },
     { key = 'o', app = 'Microsoft Outlook' },
+    { key = 'z', app = 'Zoom' },
 }
 local function focusApplication(pattern)
     local app = hs.application.find(pattern)
