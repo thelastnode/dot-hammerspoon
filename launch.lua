@@ -16,7 +16,7 @@ local appMap = {
     { key = 'q', app = 'Xcode' },
     { key = 'g', app = 'Claude' },
     { key = 'h', app = 'Home Assistant' },
-    { key = 'd', app = 'Codex' },
+    { key = 'd', app = 'ChatGPT' },
     { key = 'l', app = 'LM Studio' },
     { key = 'o', app = 'Microsoft Outlook' },
     { key = 'z', app = 'Zoom' },
