@@ -44,7 +44,12 @@ uvx --with datasette-sqlite-regex datasette ~/.hammerspoon/data/timetracker.sqli
 After Datasette is running, you can see usage for the day by opening [this link](http://localhost:8001/timetracker/time_usage?since=now&_hide_sql=1) (by default).
 
 ### [Camera light](./cameralight.lua)
-This automation turns on an Elgato key light via [Home Assistant](https://www.home-assistant.io/) when a camera is detected via USB. This requires a Home Assistant token in `~/.hammerspoon/homeassistant`. If the token is missing, the automation will not register.
+This automation turns on an Elgato key light via [Home Assistant](https://www.home-assistant.io/) when a camera is detected via USB. Create these files in the gitignored `~/.hammerspoon/secrets/` directory:
+
+- `home_assistant_api_url`: the Home Assistant API base URL, including `/api`, e.g. `https://<machine>.<network>.ts.net/api`.
+- `home_assistant_token`: a Home Assistant long-lived access token, without the `Bearer ` prefix.
+
+If either file is missing or empty, the automation will not register.
 
 ### [Screen recording mode](./screenrecording.lua)
 The `ScreenRecordingMode` function is a convenience utility to center a window on screen and resize it to 1080p. To use it, run `ScreenRecordingMode()` in the Hammerspoon console, then click a window to center it on screen, resize it to 1080p, and open [CleanShot X](https://cleanshot.com/)'s all-in-one capture mode.

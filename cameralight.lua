@@ -1,13 +1,22 @@
-local homeAssistantUrl = 'http://192.168.4.6:8123/api'
-local homeAssistantSecretFile = hs.configdir .. '/secrets/homeassistant'
-
-local function setupCameraHook()
-    local secretFile = io.open(homeAssistantSecretFile, 'r')
+local function readSecret(name)
+    local secretFile = io.open(hs.configdir .. '/secrets/' .. name, 'r')
     if secretFile == nil then
         return
     end
-    local homeAssistantToken = secretFile:read('a')
+    local value = secretFile:read('*a'):match('^%s*(.-)%s*$')
     secretFile:close()
+    if value ~= '' then
+        return value
+    end
+end
+
+local function setupCameraHook()
+    local homeAssistantUrl = readSecret('home_assistant_api_url')
+    local homeAssistantToken = readSecret('home_assistant_token')
+    if homeAssistantUrl == nil or homeAssistantToken == nil then
+        return
+    end
+    homeAssistantUrl = homeAssistantUrl:gsub('/+$', '')  -- strip trailing slash
 
     CameraWatcher = hs.usb.watcher.new(function(event)
         if event['productName'] ~= 'ILCE-7RM2' then
